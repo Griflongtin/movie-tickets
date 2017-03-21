@@ -1,9 +1,8 @@
 // Business logic
-function ticket (name, time, age, rating) {
+function ticket (name, time, age) {
   this.names = name;
   this.times = times;
   this.age = age;
-  this.rating = rating;
 }
 
 // User interface logic
@@ -12,21 +11,31 @@ $(document).ready(function()  {
     event.preventDefault();
 
     var movieName = $("select#movie-name").val();
-    var movieTimes = $("input [name=time]:checked").val();
+    var movieTimes = $("input:radio[name=time]:checked").val();
     var userAge = $("input#movie-age").val();
-
- if (age >= 18){
+    var ticketCost = 8;
+    console.log("hi");
+ if (userAge >= 18){
    var allowed = true;
  } else {
    var allowed = false;
  }
-
- if (age <= 65) {
-   var discount = false;
- } else {
-   var discount = true;
+console.log("3");
+ if (userAge >= 65) {
+   return ticketCost -2;
+   console.log(ticketCost);
  }
+ console.log("4");
+if (movieTimes = 1) {
+  return ticketCost -2;
+}
 
+console.log("5");
 
+$("#movie").text(movieName)
+$("#time-to-be").text(movieTimes)
+$("#cost").text(ticketCost)
+$("output-receipt").show();
+console.log("6");
   });
 });
